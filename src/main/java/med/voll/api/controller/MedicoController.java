@@ -36,6 +36,7 @@ public class MedicoController {
         return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
 
+    // Listar os médicos
     @GetMapping
     public ResponseEntity<Page<DadosListagemMedico>> listar(Pageable paginacao) {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
